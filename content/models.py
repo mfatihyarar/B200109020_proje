@@ -21,6 +21,7 @@ class Category(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description="Image"
+
 class Content(models.Model):
     STATUS=(
         ('True', 'Evet'),
@@ -43,6 +44,7 @@ class Content(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description="Image"
+
 class Images(models.Model):
     content=models.ForeignKey(Content, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
