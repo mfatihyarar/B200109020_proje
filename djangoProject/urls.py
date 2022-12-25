@@ -19,12 +19,16 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+from home import views
 
 urlpatterns = [
     path('', include('home.urls')),
     path('home/', include('home.urls')),
+    path('about/', views.about, name='about'),
+    path('destination/', views.destination, name='destination'),
     path('content/', include('content.urls')),
     path('admin/', admin.site.urls),
+    path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:
