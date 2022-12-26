@@ -10,11 +10,15 @@ from home.models import Setting, ContactFormu, ContactFormMessage
 def index(request):
     setting=Setting.objects.get(pk=1)
     sliderdata = Content.objects.all()[:2]
+    packagedata = Content.objects.all()[:3]
+    destinationdata=Content.objects.all()[:3]
     category=Category.objects.all()
     context = {'setting': setting,
                "category":category,
                "page":"home",
-               "sliderdata":sliderdata}
+               "sliderdata":sliderdata,
+               "destinationdata":destinationdata,
+               "packagedata":packagedata}
     return render(request, 'index.html', context)
 
 def about(request):
