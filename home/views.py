@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from content.models import Content
+from content.models import Content, Category
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 # Create your views here.
@@ -10,7 +10,11 @@ from home.models import Setting, ContactFormu, ContactFormMessage
 def index(request):
     setting=Setting.objects.get(pk=1)
     sliderdata = Content.objects.all()[:2]
-    context = {'setting': setting, "page":"home","sliderdata":sliderdata}
+    category=Category.objects.all()
+    context = {'setting': setting,
+               "category":category,
+               "page":"home",
+               "sliderdata":sliderdata}
     return render(request, 'index.html', context)
 
 def about(request):
@@ -20,12 +24,18 @@ def about(request):
 
 def destination(request):
     setting=Setting.objects.get(pk=1)
-    context = {'setting': setting,"page":"destination"}
+    destinationdata=Content.objects.all()[:20]
+    context = {'setting': setting,
+               "page":"destination",
+               "destinationdata":destinationdata}
     return render(request, 'destination.html', context)
 
 def packages(request):
     setting=Setting.objects.get(pk=1)
-    context = {'setting': setting,"page":"packages"}
+    packagedata = Content.objects.all()[:20]
+    context = {'setting': setting,
+               "page":"packages",
+               "packagedata":packagedata}
     return render(request, 'packages.html', context)
 
 def contact(request):
