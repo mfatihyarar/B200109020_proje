@@ -24,7 +24,7 @@
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
                         <h1 class="mb-3">2022 yılında kurulduk</h1>
-                        <p>Güzel vakit geçirebilmeniz, gezip eğlenebilmeniz uğraşan bir şirketiz </p>
+                        <p>Güzel vakit geçirebilmeniz, gezip eğlenebilmeniz için uğraşan bir şirketiz </p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="{% static 'img/about-1.jpg' %}" alt="">
@@ -33,6 +33,11 @@
                                 <img class="img-fluid" src="{% static 'img/about-2.jpg' %}" alt="">
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-5 pb-lg-5">
+                    <div class="about-text bg-white p-4 p-lg-10 my-lg-10">
+                        <h3 class="mb-8">{{ setting.references|safe }}</h3>
                     </div>
                 </div>
             </div>
