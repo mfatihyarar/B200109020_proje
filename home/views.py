@@ -5,8 +5,8 @@ from django.shortcuts import render
 
 import content
 from content.models import Content, Category
+from home.forms import SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage
-
 # Create your views here.
 
 def index(request):
@@ -87,10 +87,21 @@ def login_view(request):
 
 def signup_view(request):
     if request.method=='POST':
-
+        form=SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username=form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password1")
+            user=authenticate(username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect("/")
+        else:
+            messages.error(request, "Sign Up hatası !,tekrar deneyiniz")
             return HttpResponseRedirect("/signup/")
 
+    form = SignUpForm()
     category = Category.objects.all()
     context={'category':category,
+             'form':form,
              }
     return render(request,"signup.html",context)
