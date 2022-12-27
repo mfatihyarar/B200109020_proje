@@ -103,22 +103,27 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="card border-0">
+                        {% if user.id is not None %}
                         <div class="card-header bg-primary text-center p-4">
-                            <h1 class="text-white m-0">Sign Up Now</h1>
+                            <h1 class="text-white m-0">{{ user.first_name }}</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
                             <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Your name" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
-                                </div>
                                 <div>
-                                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
+                                    <a href="/logout/" class="nav-item nav-link">Logout</a>
                                 </div>
                             </form>
                         </div>
+                        {% else %}
+                        <div class="card-body rounded-bottom bg-white p-5">
+                            <form>
+                                <div>
+                                    <a href="/login/" class="nav-item nav-link">Login</a>
+                                    <a href="/signup/" class="nav-item nav-link">Sign Up</a>
+                                </div>
+                            </form>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

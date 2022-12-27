@@ -1,6 +1,8 @@
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth import logout
 from django.db import models
 from django.forms import ModelForm, TextInput, Textarea
+from django.http import HttpResponseRedirect
 
 
 # Create your models here.
@@ -63,3 +65,4 @@ class ContactFormu(ModelForm):
             "email": TextInput(attrs={"class": "input", "placeholder": "Email Address"}),
             "message": Textarea(attrs={"class": "input", "placeholder": "Your Message","rows":"S"}),
         }
+
