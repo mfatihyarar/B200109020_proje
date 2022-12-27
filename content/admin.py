@@ -6,7 +6,7 @@ from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 from content.models import Category, Content, Images
 class ContentImageInline(admin.TabularInline):
     model=Images
-    extra=5
+    extra=2
 class CategoryAdmin(MPTTModelAdmin):
     list_display = ['title', 'status','image_tag']
     readonly_fields = ('image_tag',)

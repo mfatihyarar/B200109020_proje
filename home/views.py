@@ -30,7 +30,7 @@ def about(request):
 
 def destination(request):
     setting=Setting.objects.get(pk=1)
-    destinationdata=Content.objects.all()[:20]
+    destinationdata=Content.objects.all()[:25]
     context = {'setting': setting,
                "page":"destination",
                "destinationdata":destinationdata}
@@ -38,7 +38,7 @@ def destination(request):
 
 def packages(request):
     setting=Setting.objects.get(pk=1)
-    packagedata = Content.objects.all()[:20]
+    packagedata = Content.objects.all()[:25]
     context = {'setting': setting,
                "page":"packages",
                "packagedata":packagedata}
